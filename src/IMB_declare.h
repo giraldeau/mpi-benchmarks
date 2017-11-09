@@ -89,7 +89,6 @@ typedef int Type_Size;          /*correct MPI standard  */
 
 extern int num_alloc, num_free;
 
-
 #undef DEBUG
 
 #ifdef DEBUG
@@ -251,12 +250,7 @@ extern int IMB_internal_barrier;
         int _ii;                            \
         for (_ii = 0; _ii < iter; ++_ii)    \
         {                                   \
-            if (IMB_internal_barrier)       \
-            {                               \
-                IMB_Barrier(comm);          \
-            } else {                        \
-                MPI_Barrier(comm);          \
-            }                               \
+            MPI_Barrier(comm);              \
         }                                   \
     }                                       \
 
